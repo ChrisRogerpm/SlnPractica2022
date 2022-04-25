@@ -1,0 +1,184 @@
+{
+    "2016-I": {
+        "Ciclo I": [
+            [
+                {
+                    "codigo": "ING-101",
+                    "asignatura": "MATEMATICA I",
+                    "horas": 6,
+                    "creditos": 5,
+                    "prerequisito": "Ninguno"
+                },
+                {
+                    "codigo": "ING-102",
+                    "asignatura": "MATEMATICA BASICA I",
+                    "horas": 6,
+                    "creditos": 5,
+                    "prerequisito": "Ninguno"
+                },
+                {
+                    "codigo": "ING-103",
+                    "asignatura": "DISEÑO EN INGENIERIA",
+                    "horas": 6,
+                    "creditos": 4,
+                    "prerequisito": "Ninguno"
+                },
+                {
+                    "codigo": "ING-104",
+                    "asignatura": "COMUNICACIÓN ORAL Y ESCRITA",
+                    "horas": 4,
+                    "creditos": 3,
+                    "prerequisito": "Ninguno"
+                },
+                {
+                    "codigo": "ING-105",
+                    "asignatura": "METODOLOGIA DEL TRABAJO UNIVERSITARIO",
+                    "horas": 4,
+                    "creditos": 3,
+                    "prerequisito": "Ninguno"
+                },
+                {
+                    "codigo": "SI-171",
+                    "asignatura": "INTRODUCCION A LA INGENIERIA DE SISTEMAS",
+                    "horas": 2,
+                    "creditos": 2,
+                    "prerequisito": "Ninguno"
+                }
+            ]
+        ],
+        "Ciclo II": [
+            {
+                "codigo": "ING-201",
+                "asignatura": "MATEMATICA II",
+                "horas": 6,
+                "creditos": 5,
+                "prerequisito": "ING-101"
+            },
+            {
+                "codigo": "ING-202",
+                "asignatura": "FISICA I",
+                "horas": 6,
+                "creditos": 5,
+                "prerequisito": "Min 14 creditos"
+            },
+            {
+                "codigo": "ING-203",
+                "asignatura": "TECNICAS DE PROGRAMACIÓN",
+                "horas": 6,
+                "creditos": 4,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "ING-204",
+                "asignatura": "ECONOMIA I",
+                "horas": 3,
+                "creditos": 2,
+                "prerequisito": "Min 12 creditos"
+            },
+            {
+                "codigo": "ING-205",
+                "asignatura": "ESTADISTICA I",
+                "horas": 4,
+                "creditos": 3,
+                "prerequisito": "Min 12 creditos"
+            },
+            {
+                "codigo": "ING-206",
+                "asignatura": "QUIMICA I",
+                "horas": 5,
+                "creditos": 4,
+                "prerequisito": "Ninguno"
+            }
+        ]
+    },
+    "2020-I": {
+        "Ciclo I": [
+            {
+                "codigo": "EG-181",
+                "asignatura": "COMUNICACIÓN I",
+                "th": 5,
+                "creditos": 4,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "EG-182",
+                "asignatura": "MATEMATICA BASICA",
+                "th": 6,
+                "creditos": 4,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "EG-183",
+                "asignatura": "ESTRATEGIAS PARA EL APRENDIZAJE AUTONOMO",
+                "th": 3,
+                "creditos": 3,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "EG-184",
+                "asignatura": "DESARROLLO PERSONAL Y LIDERAZGO",
+                "th": 3,
+                "creditos": 3,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "EG-185",
+                "asignatura": "DESARROLLO DE COMPETENCIAS DIGITALES",
+                "th": 4,
+                "creditos": 3,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "INE-186",
+                "asignatura": "MATEMATICA I",
+                "th": 6,
+                "creditos": 5,
+                "prerequisito": "Ninguno"
+            }
+        ],
+        "Ciclo II": [
+            {
+                "codigo": "EG-281",
+                "asignatura": "COMUNICACIÓN II",
+                "th": 4,
+                "creditos": 3,
+                "prerequisito": "EG-181"
+            },
+            {
+                "codigo": "EG-282",
+                "asignatura": "TERRITORIO PERUANO, DEFENSA Y SEGURIDAD NACIONAL",
+                "th": 3,
+                "creditos": 3,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "EG-283",
+                "asignatura": "FILOSOFIA",
+                "th": 3,
+                "creditos": 3,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "INE-284",
+                "asignatura": "TECNICAS DE PROGRAMACION",
+                "th": 6,
+                "creditos": 4,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "INE-285",
+                "asignatura": "FISICA I",
+                "th": 5,
+                "creditos": 4,
+                "prerequisito": "Ninguno"
+            },
+            {
+                "codigo": "INE-286",
+                "asignatura": "MATEMATICA II",
+                "th": 6,
+                "creditos": 5,
+                "prerequisito": "INE-186"
+            }
+        ]
+    }
+}

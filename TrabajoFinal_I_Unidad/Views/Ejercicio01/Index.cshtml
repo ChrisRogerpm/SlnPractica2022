@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ejercicio 01</h2>
+
+<!-- <form id="frmRetiro"> -->
+<div class="row">
+    <div class="col-lg-6">
+        <form id="frmRetiro">
+            <div class="form-group">
+                <label>Retirar:</label>
+                <input type="number" class="form-control text-center" placeholder="Ingrese monto a retirar" name="ValorEntrante">
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/100</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorCien" id="ValorCien">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/50</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorCincuenta" id="ValorCincuenta">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/20</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorVeinte" id="ValorVeinte">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/10</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorDiez" id="ValorDiez">
+                </div>
+            </div>
+            <button type="button" id="btnRetirar" class="btn btn-primary">Retirar</button>
+        </form>
+    </div>
+    <div class="col-lg-6">
+        <form id="frmIngreso">
+            <div class="form-group">
+                <label>Monto Ingresar:</label>
+                <input type="number" class="form-control text-center" name="ValorEntrante" id="ValorEntrante">
+            </div>
+            <div class="form-group">
+                <label>Monto Dinero Disponible:</label>
+                <input type="number" class="form-control text-center" readonly name="ValorDisponible" value="10000" id="ValorDisponible">
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/100</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorCien" id="ValorCienIngreso">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/50</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorCincuenta" id="ValorCincuentaIngreso">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/20</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorVeinte" id="ValorVeinteIngreso">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cantidad en billetes S/10</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly name="ValorDiez" id="ValorDiezIngreso">
+                </div>
+            </div>
+            <button type="button" id="btnIngresar" class="btn btn-primary">Ingresar</button>
+        </form>
+    </div>
+    <div class="col-lg-3">
+        <table class="table" id="tableContainer">
+            <thead>
+                <tr>
+                    <th>Operación</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section js{
+
+    <script>
+
+        $(document).ready(function () {
+            ListaDeMovimientos = [];
+            ValorDisponible = $("#ValorDisponible").val();
+            $(document).on('click', '#btnRetirar', function () {
+                const data = $("#frmRetiro").serializeFormJSON();
+                if (data.ValorEntrante === "") {
+                    alert("Ingrese un valor valida");
+                    return false;
+                }
+                if (parseFloat(data.ValorEntrante) % 10 > 0) {
+                    alert("Ingrese un valor valida");
+                    return false;
+                }
+                if (parseFloat(data.ValorEntrante) > parseFloat(ValorDisponible)) {
+                    alert("El valor del retiro excede lo disponible")
+                    return false;
+                }
+                $.ajax({
+                    url: "/Ejercicio01/CalcularOperacion",
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        let { data } = response;
+                        $("#ValorCien").val(data.ValorCien);
+                        $("#ValorCincuenta").val(data.ValorCincuenta);
+                        $("#ValorVeinte").val(data.ValorVeinte);
+                        $("#ValorDiez").val(data.ValorDiez);
+                        ListarMovimientos();
+                    }
+                });
+                ListaDeMovimientos.push({ tipoOperacion: "Retiro", monto: data.ValorEntrante });
+                ValorDisponible = parseFloat(ValorDisponible) - parseFloat(data.ValorEntrante);
+                $("#ValorDisponible").val(ValorDisponible);
+            });
+
+            $(document).on('click', '#btnIngresar', function () {
+                const data = $("#frmIngreso").serializeFormJSON();
+                if (data.ValorEntrante === "") {
+                    alert("Ingrese un valor valida");
+                    return false;
+                }
+                if (parseFloat(data.ValorEntrante) % 10 > 0) {
+                    alert("Ingrese un valor valida");
+                    return false;
+                }
+                $.ajax({
+                    url: "/Ejercicio01/CalcularOperacion",
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        let { data } = response;
+                        $("#ValorCienIngreso").val(data.ValorCien);
+                        $("#ValorCincuentaIngreso").val(data.ValorCincuenta);
+                        $("#ValorVeinteIngreso").val(data.ValorVeinte);
+                        $("#ValorDiezIngreso").val(data.ValorDiez);
+                        ListarMovimientos();
+                    }
+                });
+                ListaDeMovimientos.push({ tipoOperacion: "Ingreso", monto: data.ValorEntrante });
+                ValorDisponible = parseFloat(ValorDisponible) + parseFloat(data.ValorEntrante);
+                $("#ValorDisponible").val(ValorDisponible);
+            });
+            const ListarMovimientos = () => {
+                let contenedor = $("#tableContainer tbody").html("");
+                ListaDeMovimientos.map((row) => {
+                    contenedor.append(`<tr>
+                                        <td>${row.tipoOperacion}<td/>
+                                        <td>${row.monto}<td/>
+                                    </tr>`)
+                })
+            }
+        });
+
+    </script>
+
+}

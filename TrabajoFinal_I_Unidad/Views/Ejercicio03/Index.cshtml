@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<form id="frmCalculo">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-sm" id="tableContainer">
+                <thead>
+                    <tr>
+                        <th>Denominación</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>200.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorDoscientos"></td>
+                    </tr>
+                    <tr>
+                        <td>100.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCien"></td>
+                    </tr>
+                    <tr>
+                        <td>50.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCincuenta"></td>
+                    </tr>
+                    <tr>
+                        <td>20.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorVeinte"></td>
+                    </tr>
+                    <tr>
+                        <td>10.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorDiez"></td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL BILLETES</td>
+                        <td><input type="number" class="form-control text-center" name="TotalBilletes" readonly id="TotalBilletes"></td>
+                    </tr>
+                    <tr>
+                        <td>5.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCinco"></td>
+                    </tr>
+                    <tr>
+                        <td>2.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorDos"></td>
+                    </tr>
+                    <tr>
+                        <td>1.00</td>
+                        <td><input type="number" class="form-control text-center" name="ValorUno"></td>
+                    </tr>
+                    <tr>
+                        <td>0.50</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCeroCinco"></td>
+                    </tr>
+                    <tr>
+                        <td>0.20</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCeroVeinte"></td>
+                    </tr>
+                    <tr>
+                        <td>0.10</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCeroDiez"></td>
+                    </tr>
+                    <tr>
+                        <td>0.05</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCeroCinco"></td>
+                    </tr>
+                    <tr>
+                        <td>0.01</td>
+                        <td><input type="number" class="form-control text-center" name="ValorCeroUno"></td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL MONEDAS</td>
+                        <td><input type="number" class="form-control text-center" name="ValorTotalMonedas" readonly id="TotalMonedas"></td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td><input type="text" class="form-control text-center" readonly name="Total"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="ResultadoTexto"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" id="btnCalcular" class="btn btn-primary">Calcular</button>
+        </div>
+    </div>
+</form>
+@section js{
+
+    <script>
+
+        $(document).ready(function () {
+            $(document).on('click', '#btnCalcular', function () {
+                const data = $("#frmCalculo").serializeFormJSON();
+                if (data.Cantidad === "") {
+                    alert("Ingrese un valor valido");
+                    return false;
+                }
+                $.ajax({
+                    url: "/Ejercicio03/CalcularOperacion",
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        let { data } = response;
+                        if (data.Estado) {
+                            alert(`${data.Mensaje}`)
+                        } else {
+                            $("#TotalBilletes").val(data.TotalBilletes);
+                            $("#TotalMonedas").val(data.TotalMonedas);
+                            $("#ResultadoTexto").text(`SON ${data.ResultadoTexto}`);
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+
+}
+
