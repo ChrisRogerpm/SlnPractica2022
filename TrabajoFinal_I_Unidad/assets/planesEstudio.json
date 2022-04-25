@@ -1,51 +1,49 @@
 {
     "2016-I": {
-        "Ciclo I": [
-            [
-                {
-                    "codigo": "ING-101",
-                    "asignatura": "MATEMATICA I",
-                    "horas": 6,
-                    "creditos": 5,
-                    "prerequisito": "Ninguno"
-                },
-                {
-                    "codigo": "ING-102",
-                    "asignatura": "MATEMATICA BASICA I",
-                    "horas": 6,
-                    "creditos": 5,
-                    "prerequisito": "Ninguno"
-                },
-                {
-                    "codigo": "ING-103",
-                    "asignatura": "DISEÑO EN INGENIERIA",
-                    "horas": 6,
-                    "creditos": 4,
-                    "prerequisito": "Ninguno"
-                },
-                {
-                    "codigo": "ING-104",
-                    "asignatura": "COMUNICACIÓN ORAL Y ESCRITA",
-                    "horas": 4,
-                    "creditos": 3,
-                    "prerequisito": "Ninguno"
-                },
-                {
-                    "codigo": "ING-105",
-                    "asignatura": "METODOLOGIA DEL TRABAJO UNIVERSITARIO",
-                    "horas": 4,
-                    "creditos": 3,
-                    "prerequisito": "Ninguno"
-                },
-                {
-                    "codigo": "SI-171",
-                    "asignatura": "INTRODUCCION A LA INGENIERIA DE SISTEMAS",
-                    "horas": 2,
-                    "creditos": 2,
-                    "prerequisito": "Ninguno"
-                }
-            ]
-        ],
+      "Ciclo I": [
+        {
+          "codigo": "ING-101",
+          "asignatura": "MATEMATICA I",
+          "horas": 6,
+          "creditos": 5,
+          "prerequisito": "Ninguno"
+        },
+        {
+          "codigo": "ING-102",
+          "asignatura": "MATEMATICA BASICA I",
+          "horas": 6,
+          "creditos": 5,
+          "prerequisito": "Ninguno"
+        },
+        {
+          "codigo": "ING-103",
+          "asignatura": "DISEÑO EN INGENIERIA",
+          "horas": 6,
+          "creditos": 4,
+          "prerequisito": "Ninguno"
+        },
+        {
+          "codigo": "ING-104",
+          "asignatura": "COMUNICACIÓN ORAL Y ESCRITA",
+          "horas": 4,
+          "creditos": 3,
+          "prerequisito": "Ninguno"
+        },
+        {
+          "codigo": "ING-105",
+          "asignatura": "METODOLOGIA DEL TRABAJO UNIVERSITARIO",
+          "horas": 4,
+          "creditos": 3,
+          "prerequisito": "Ninguno"
+        },
+        {
+          "codigo": "SI-171",
+          "asignatura": "INTRODUCCION A LA INGENIERIA DE SISTEMAS",
+          "horas": 2,
+          "creditos": 2,
+          "prerequisito": "Ninguno"
+        }
+      ],
         "Ciclo II": [
             {
                 "codigo": "ING-201",

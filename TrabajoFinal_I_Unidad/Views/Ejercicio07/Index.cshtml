@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ejercicio 07</h2>
+
+<div class="row">
+    <div class="col-lg-6">
+        <form id="frmFiltro">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Seleccione Plan de Estudios</label>
+                <div class="col-sm-10">
+                    <select id="planEstudio" class="form-control" name="planEstudio">
+                        <option value="2016-I">2016-I</option>
+                        <option value="2020-I">2020-I</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Ciclos</label>
+                <div class="col-sm-10">
+                    <select id="ciclos" name="ciclos" class="form-control">
+                        <option value="todos">-- Todos --</option>
+                        <option value="Ciclo I">Ciclo I</option>
+                        <option value="Ciclo II">Ciclo II</option>
+                        <option value="Ciclo III">Ciclo III</option>
+                        <option value="Ciclo IV">Ciclo IV</option>
+                        <option value="Ciclo V">Ciclo V</option>
+                        <option value="Ciclo VI">Ciclo VI</option>
+                        <option value="Ciclo VII">Ciclo VII</option>
+                        <option value="Ciclo VIII">Ciclo VIII</option>
+                        <option value="Ciclo IX">Ciclo IX</option>
+                        <option value="Ciclo X">Ciclo X</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" id="btnRetirar" class="btn btn-primary">Retirar</button>
+        </form>
+    </div>
+    <div class="col-lg-12" style="margin-top:30px">
+        <table class="table" id="tableContainer">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Asignatura</th>
+                    <th>HT</th>
+                    <th>Creditos</th>
+                    <th>Pre Requisito</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section js{
+
+    <script>
+
+        $(document).ready(function () {
+            $(document).on('click', '#btnRetirar', function () {
+                const data = $("#frmFiltro").serializeFormJSON();
+                $.ajax({
+                    url: "/Ejercicio07/ObtenerListado",
+                    type: 'POST',
+                    success: function (response) {
+                        let dataParseada = JSON.parse(response.data);
+                        let keys = Object.keys(dataParseada);
+                        let planEstudioSeleccionado = data.planEstudio;
+                        let ciclosSeleccionado = data.ciclos;
+                        let listafinal = [];
+                        let filtro = dataParseada[planEstudioSeleccionado];
+                        let filtrociclos = Object.keys(filtro);
+                        let contenidoTabla = "";
+                        if (ciclosSeleccionado === "todos") {
+                            filtrociclos.map((row, index) => {
+                                if (ciclosSeleccionado === "todos") {
+                                    listafinal.push(filtro[filtrociclos[index]]);
+                                }
+                            })
+                        } else {
+                            listafinal.push(filtro[ciclosSeleccionado]);
+                        }
+                        listafinal.map((row, index) => {
+                            row.map((arg) => {
+                                contenidoTabla += `<tr>
+                                    <td>${arg.codigo}</td>
+                                    <td>${arg.asignatura}</td>
+                                    <td>${arg.horas}</td>
+                                    <td>${arg.creditos}</td>
+                                    <td>${arg.prerequisito}</td>
+                                </tr>`;
+                            });
+                        });
+                        $("#tableContainer tbody").html("").append(contenidoTabla);
+                    }
+                });
+            });
+        });
+
+    </script>
+
+}

@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -1771,6 +1774,7 @@
     <Compile Include="Controllers\Ejercicio01Controller.cs" />
     <Compile Include="Controllers\Ejercicio03Controller.cs" />
     <Compile Include="Controllers\Ejercicio05Controller.cs" />
+    <Compile Include="Controllers\Ejercicio07Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1778,6 +1782,7 @@
     <Compile Include="Models\Ejercicio01.cs" />
     <Compile Include="Models\Ejercicio03.cs" />
     <Compile Include="Models\Ejercicio05.cs" />
+    <Compile Include="Models\Ejercicio07.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1876,6 +1881,7 @@
     <Content Include="Views\Ejercicio01\Index.cshtml" />
     <Content Include="Views\Ejercicio05\Index.cshtml" />
     <Content Include="Views\Ejercicio03\Index.cshtml" />
+    <Content Include="Views\Ejercicio07\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

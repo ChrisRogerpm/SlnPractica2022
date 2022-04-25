@@ -76,3 +76,5 @@ C:\Users\Chris\source\repos\TrabajoFinal_I_Unidad\TrabajoFinal_I_Unidad\obj\Debu
 C:\Users\Chris\source\repos\TrabajoFinal_I_Unidad\TrabajoFinal_I_Unidad\obj\Debug\TrabajoFinal_I_Unidad.csproj.CopyComplete
 C:\Users\Chris\source\repos\TrabajoFinal_I_Unidad\TrabajoFinal_I_Unidad\obj\Debug\TrabajoFinal_I_Unidad.dll
 C:\Users\Chris\source\repos\TrabajoFinal_I_Unidad\TrabajoFinal_I_Unidad\obj\Debug\TrabajoFinal_I_Unidad.pdb
+C:\Users\Chris\source\repos\TrabajoFinal_I_Unidad\TrabajoFinal_I_Unidad\bin\Newtonsoft.Json.dll
+C:\Users\Chris\source\repos\TrabajoFinal_I_Unidad\TrabajoFinal_I_Unidad\bin\Newtonsoft.Json.xml
