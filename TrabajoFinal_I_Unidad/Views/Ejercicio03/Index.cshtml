@@ -79,7 +79,7 @@
                     </tr>
                     <tr>
                         <td>TOTAL</td>
-                        <td><input type="text" class="form-control text-center" readonly name="Total"></td>
+                        <td><input type="text" class="form-control text-center" readonly name="Total" id="Total"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -88,7 +88,7 @@
                 </tbody>
             </table>
 
-            <button type="button" id="btnCalcular" class="btn btn-primary">Calcular</button>
+            <button type="button" id="btnCalcular" class="btn btn-primary mb-4">Calcular</button>
         </div>
     </div>
 </form>
@@ -115,6 +115,7 @@
                             $("#TotalBilletes").val(data.TotalBilletes);
                             $("#TotalMonedas").val(data.TotalMonedas);
                             $("#ResultadoTexto").text(`SON ${data.ResultadoTexto}`);
+                            $("#Total").val(parseFloat(data.TotalBilletes) + parseFloat(data.TotalMonedas));
                         }
                     }
                 });
